@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brawijaya Healthcare Group - Jaringan Kesehatan Terpercaya</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mobile-First CSS Base */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        /* Mobile-first glassmorphism - minimal effects for mobile */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+        }
+        
+        /* Desktop enhancements only */
+        @media (min-width: 768px) {
+            .glass-card {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 16px;
+            }
+        }
+        
+        /* Mobile-first gradient background */
+        .bg-medical {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        /* Disable heavy animations on mobile */
+        @media (max-width: 767px) {
+            .no-mobile-animation {
+                animation: none !important;
+            }
+        }
+        
+        /* Desktop-only animations */
+        @media (min-width: 768px) {
+            .float-animation {
+                animation: float 3s ease-in-out infinite;
+            }
+            
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+            }
+        }
+        
+        /* Touch-friendly buttons - minimum 44px */
+        .touch-button {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Hover effects only for devices that support hover */
+        @media (hover: hover) {
+            .hover-scale:hover {
+                transform: scale(1.05);
+                transition: transform 0.2s ease;
+            }
+        }
+        
+        /* Mobile-optimized chart container */
+        .chart-container {
+            position: relative;
+            height: 200px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-medical">
+    <!-- Mobile-First Header -->
+    <header class="text-center py-6 md:py-12">
+        <div class="container mx-auto px-4">
+            <!-- Mobile: text-2xl, Desktop: md:text-4xl lg:text-5xl -->
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4">
+                Brawijaya Healthcare Group
+            </h1>
+            <!-- Mobile: text-sm, Desktop: md:text-lg -->
+            <p class="text-sm md:text-lg text-blue-100 mb-4 md:mb-6">
+                "Hospital With A Heart" - Jaringan Kesehatan Terpercaya Indonesia
+            </p>
+            <!-- Mobile: text-xs, Desktop: md:text-sm -->
+            <div class="text-xs md:text-sm text-blue-200">
+                📍 7 Fasilitas • 🏥 5 Rumah Sakit • 🏢 2 Klinik • ⭐ CNBC Awards 2024
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto px-3 md:px-6 lg:px-8 pb-8">
+        
+        <!-- Key Achievements Cards - Mobile: 1 column, Desktop: 2-3 columns -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-10">
+            
+            <!-- 18 Years Achievement -->
+            <div class="glass-card p-4 md:p-6 text-center hover-scale">
+                <div class="text-3xl md:text-4xl mb-2 md:mb-3">🎂</div>
+                <h3 class="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">18 Tahun</h3>
+                <p class="text-xs md:text-sm text-blue-100">Berdiri sejak 17 September 2006</p>
+            </div>
+            
+            <!-- Network Size Achievement -->
+            <div class="glass-card p-4 md:p-6 text-center hover-scale">
+                <div class="text-3xl md:text-4xl mb-2 md:mb-3">🏥</div>
+                <h3 class="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">7 Fasilitas</h3>
+                <p class="text-xs md:text-sm text-blue-100">Jakarta • Depok • Tangerang • Bandung</p>
+            </div>
+            
+            <!-- Recent Award -->
+            <div class="glass-card p-4 md:p-6 text-center hover-scale md:col-span-2 lg:col-span-1">
+                <div class="text-3xl md:text-4xl mb-2 md:mb-3">🏆</div>
+                <h3 class="text-lg md:text-xl font-bold text-white mb-1 md:mb-2">CNBC Awards 2024</h3>
+                <p class="text-xs md:text-sm text-blue-100">Outstanding Technology-Driven Healthcare</p>
+            </div>
+        </section>
+
+        <!-- Network Expansion Timeline -->
+        <section class="glass-card p-4 md:p-6 lg:p-8 mb-6 md:mb-10">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
+                📈 Perjalanan Ekspansi Network
+            </h2>
+            <div class="chart-container">
+                <canvas id="timelineChart"></canvas>
+            </div>
+            <!-- Mobile-friendly timeline text -->
+            <div class="mt-4 md:mt-6 text-center">
+                <p class="text-xs md:text-sm text-blue-100">
+                    Dari 1 rumah sakit di Antasari (2006) → 7 fasilitas di 4 kota (2024)
+                </p>
+            </div>
+        </section>
+
+        <!-- Centers of Excellence -->
+        <section class="glass-card p-4 md:p-6 lg:p-8 mb-6 md:mb-10">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
+                🌟 Centers of Excellence
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <!-- Centers Chart -->
+                <div class="chart-container">
+                    <canvas id="centersChart"></canvas>
+                </div>
+                <!-- Centers List - Mobile optimized -->
+                <div class="space-y-2 md:space-y-3">
+                    <div class="bg-white bg-opacity-20 rounded-lg p-3 md:p-4">
+                        <h4 class="font-bold text-white text-sm md:text-base">❤️ BraveHeart Center</h4>
+                        <p class="text-xs md:text-sm text-blue-100">Cathlab & Hybrid Operating Theatre</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-3 md:p-4">
+                        <h4 class="font-bold text-white text-sm md:text-base">👶 Children Center</h4>
+                        <p class="text-xs md:text-sm text-blue-100">Comprehensive pediatric care</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-3 md:p-4">
+                        <h4 class="font-bold text-white text-sm md:text-base">🤱 Maternity Center</h4>
+                        <p class="text-xs md:text-sm text-blue-100">Mom's Journey Program</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-3 md:p-4">
+                        <h4 class="font-bold text-white text-sm md:text-base">🎯 Oncology • Pain • Endoscopic</h4>
+                        <p class="text-xs md:text-sm text-blue-100">Specialized treatment centers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HEART Values Wheel -->
+        <section class="glass-card p-4 md:p-6 lg:p-8 mb-6 md:mb-10">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
+                💖 Nilai-Nilai HEART
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4">
+                <!-- H - Hospitality -->
+                <div class="text-center p-3 md:p-4 bg-white bg-opacity-10 rounded-lg hover-scale">
+                    <div class="text-2xl md:text-3xl mb-2">🤝</div>
+                    <h4 class="font-bold text-white text-sm md:text-base mb-1">Hospitality</h4>
+                    <p class="text-xs text-blue-100">Keramah-tamahan</p>
+                </div>
+                <!-- E - Excellence -->
+                <div class="text-center p-3 md:p-4 bg-white bg-opacity-10 rounded-lg hover-scale">
+                    <div class="text-2xl md:text-3xl mb-2">⭐</div>
+                    <h4 class="font-bold text-white text-sm md:text-base mb-1">Excellence</h4>
+                    <p class="text-xs text-blue-100">Kualitas</p>
+                </div>
+                <!-- A - Agility -->
+                <div class="text-center p-3 md:p-4 bg-white bg-opacity-10 rounded-lg hover-scale">
+                    <div class="text-2xl md:text-3xl mb-2">⚡</div>
+                    <h4 class="font-bold text-white text-sm md:text-base mb-1">Agility</h4>
+                    <p class="text-xs text-blue-100">Kegesitan</p>
+                </div>
+                <!-- R - Reliability -->
+                <div class="text-center p-3 md:p-4 bg-white bg-opacity-10 rounded-lg hover-scale">
+                    <div class="text-2xl md:text-3xl mb-2">🛡️</div>
+                    <h4 class="font-bold text-white text-sm md:text-base mb-1">Reliability</h4>
+                    <p class="text-xs text-blue-100">Keandalan</p>
+                </div>
+                <!-- T - Teamwork -->
+                <div class="text-center p-3 md:p-4 bg-white bg-opacity-10 rounded-lg hover-scale md:col-span-1 col-span-2">
+                    <div class="text-2xl md:text-3xl mb-2">👥</div>
+                    <h4 class="font-bold text-white text-sm md:text-base mb-1">Teamwork</h4>
+                    <p class="text-xs text-blue-100">Kerja sama</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision & Mission -->
+        <section class="glass-card p-4 md:p-6 lg:p-8 mb-6 md:mb-10">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
+                🎯 Visi & Misi
+            </h2>
+            <div class="space-y-4 md:space-y-6">
+                <!-- Vision -->
+                <div class="bg-white bg-opacity-10 rounded-lg p-4 md:p-6">
+                    <h3 class="font-bold text-white text-lg md:text-xl mb-2 md:mb-3">🔮 Visi</h3>
+                    <p class="text-sm md:text-base text-blue-100 leading-relaxed">
+                        Menjadi jaringan layanan kesehatan terpercaya di Indonesia dengan pusat-pusat keunggulan medis yang terdepan
+                    </p>
+                </div>
+                <!-- Mission -->
+                <div class="bg-white bg-opacity-10 rounded-lg p-4 md:p-6">
+                    <h3 class="font-bold text-white text-lg md:text-xl mb-2 md:mb-3">🚀 Misi</h3>
+                    <p class="text-sm md:text-base text-blue-100 leading-relaxed">
+                        Memberikan layanan kesehatan lengkap dalam bidang obstetri, ginekologi, kesehatan wanita, dan perawatan anak dengan penekanan pada kualitas dan keselamatan pasien melalui manajemen modern dan mandiri
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geographic Coverage Map -->
+        <section class="glass-card p-4 md:p-6 lg:p-8">
+            <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-4 md:mb-6 text-center">
+                🗺️ Jangkauan Geografis
+            </h2>
+            <div class="chart-container mb-4 md:mb-6">
+                <canvas id="locationChart"></canvas>
+            </div>
+            <!-- Location summary -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 text-center">
+                <div class="bg-white bg-opacity-10 rounded-lg p-3 md:p-4">
+                    <h4 class="font-bold text-white text-sm md:text-base">🏙️ Jakarta</h4>
+                    <p class="text-xs text-blue-100">4 Fasilitas</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-3 md:p-4">
+                    <h4 class="font-bold text-white text-sm md:text-base">🌆 Jabodetabek</h4>
+                    <p class="text-xs text-blue-100">2 Fasilitas</p>
+                </div>
+                <div class="bg-white bg-opacity-10 rounded-lg p-3 md:p-4">
+                    <h4 class="font-bold text-white text-sm md:text-base">🏔️ Jawa Barat</h4>
+                    <p class="text-xs text-blue-100">1 Fasilitas</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 md:py-8">
+        <div class="container mx-auto px-4">
+            <p class="text-xs md:text-sm text-blue-200">
+                © 2024 Brawijaya Healthcare Group - "The Most Constantly Refined Health Care Group in Indonesia"
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile-first Chart.js configuration
+        const isMobile = window.innerWidth < 768;
+        const baseFontSize = isMobile ? 9 : 12;
+        const titleFontSize = isMobile ? 12 : 16;
+        const legendFontSize = isMobile ? 8 : 11;
+        
+        // Mobile-first chart defaults
+        Chart.defaults.font.size = baseFontSize;
+        Chart.defaults.color = '#e0e7ff';
+        
+        // 1. Timeline Chart - Mobile optimized
+        const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+        new Chart(timelineCtx, {
+            type: 'line',
+            data: {
+                labels: ['2006', '2010', '2015', '2020', '2023', '2024'],
+                datasets: [{
+                    label: 'Jumlah Fasilitas',
+                    data: [1, 2, 3, 5, 6, 7],
+                    borderColor: '#60a5fa',
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    borderWidth: isMobile ? 2 : 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#60a5fa',
+                    pointRadius: isMobile ? 4 : 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: !isMobile, // Hide title on mobile to save space
+                        text: 'Ekspansi Network Brawijaya Healthcare',
+                        font: { size: titleFontSize },
+                        color: '#ffffff'
+                    },
+                    legend: {
+                        display: !isMobile, // Hide legend on mobile
+                        labels: { font: { size: legendFontSize } }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 8,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { 
+                            font: { size: baseFontSize },
+                            color: '#e0e7ff'
+                        }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { 
+                            font: { size: baseFontSize },
+                            color: '#e0e7ff'
+                        }
+                    }
+                },
+                // Disable animations on mobile for performance
+                animation: isMobile ? false : {
+                    duration: 1000,
+                    easing: 'easeOutQuart'
+                }
+            }
+        });
+
+        // 2. Centers of Excellence Chart - Mobile optimized donut
+        const centersCtx = document.getElementById('centersChart').getContext('2d');
+        new Chart(centersCtx, {
+            type: 'doughnut',
+            data: {
+                labels: isMobile ? 
+                    ['BraveHeart', 'Children', 'Maternity', 'Others'] : // Shortened for mobile
+                    ['BraveHeart Center', 'Children Center', 'Maternity Center', 'Oncology & Others'],
+                datasets: [{
+                    data: [30, 25, 25, 20],
+                    backgroundColor: [
+                        '#ef4444', // Red for BraveHeart
+                        '#10b981', // Green for Children
+                        '#f59e0b', // Yellow for Maternity
+                        '#8b5cf6'  // Purple for Others
+                    ],
+                    borderWidth: isMobile ? 1 : 2,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: isMobile ? '60%' : '70%',
+                plugins: {
+                    title: {
+                        display: !isMobile,
+                        text: '6 Centers of Excellence',
+                        font: { size: titleFontSize },
+                        color: '#ffffff'
+                    },
+                    legend: {
+                        position: isMobile ? 'bottom' : 'right',
+                        labels: { 
+                            font: { size: legendFontSize },
+                            padding: isMobile ? 8 : 15,
+                            usePointStyle: true
+                        }
+                    }
+                },
+                animation: isMobile ? false : {
+                    animateRotate: true,
+                    duration: 1000
+                }
+            }
+        });
+
+        // 3. Geographic Coverage Chart - Mobile optimized bar
+        const locationCtx = document.getElementById('locationChart').getContext('2d');
+        new Chart(locationCtx, {
+            type: 'bar',
+            data: {
+                labels: isMobile ? ['JKT', 'DEP', 'TNG', 'BDG'] : ['Jakarta', 'Depok', 'Tangerang', 'Bandung'],
+                datasets: [{
+                    label: 'Jumlah Fasilitas',
+                    data: [4, 1, 1, 1],
+                    backgroundColor: [
+                        '#3b82f6', // Blue for Jakarta
+                        '#10b981', // Green for Depok
+                        '#f59e0b', // Yellow for Tangerang
+                        '#ef4444'  // Red for Bandung
+                    ],
+                    borderRadius: isMobile ? 4 : 8,
+                    borderSkipped: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: !isMobile,
+                        text: 'Distribusi Fasilitas per Kota',
+                        font: { size: titleFontSize },
+                        color: '#ffffff'
+                    },
+                    legend: {
+                        display: false // Hide legend for bar chart
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 5,
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                        ticks: { 
+                            font: { size: baseFontSize },
+                            color: '#e0e7ff'
+                        }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { 
+                            font: { size: baseFontSize },
+                            color: '#e0e7ff'
+                        }
+                    }
+                },
+                animation: isMobile ? false : {
+                    duration: 800,
+                    easing: 'easeOutBounce'
+                }
+            }
+        });
+
+        // Mobile-specific optimizations
+        if (isMobile) {
+            // Reduce chart updates for performance
+            Chart.defaults.animation = false;
+            Chart.defaults.interaction.intersect = false;
+            Chart.defaults.interaction.mode = 'point';
+        }
+
+        // Responsive chart resize handling
+        window.addEventListener('resize', function() {
+            // Debounce resize events for mobile performance
+            clearTimeout(window.resizeTimeout);
+            window.resizeTimeout = setTimeout(function() {
+                // Charts auto-resize with Chart.js responsive: true
+                const newIsMobile = window.innerWidth < 768;
+                if (newIsMobile !== isMobile) {
+                    // Only reload if mobile/desktop state changed
+                    location.reload();
+                }
+            }, 250);
+        });
+
+        // Touch-friendly interactions for mobile
+        if ('ontouchstart' in window) {
+            // Disable hover effects on touch devices
+            document.body.classList.add('touch-device');
+        }
+    </script>
+</body>
+</html>
