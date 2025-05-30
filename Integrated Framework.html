@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Digital Health Transformation Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3c72;
+            --secondary: #2a5298;
+            --accent: #4facfe;
+            --leadership: #ff6b6b;
+            --financial: #2d3748;
+            --interoperability: #48bb78;
+            --design: #f093fb;
+            --value: #4facfe;
+            --digital: #667eea;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e6f0ff 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #4facfe);
+        }
+        
+        .framework-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .tab-btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.3);
+        }
+        
+        .framework-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .framework-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+        
+        .leadership-foundation {
+            background: linear-gradient(135deg, var(--leadership), #ee5a24);
+            border-radius: 2rem;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(255, 107, 107, 0.2);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .leadership-foundation::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .leadership-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .concurrent-streams {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            padding: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        .streams-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stream-card {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.95));
+            border-radius: 1.5rem;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border-top: 6px solid var(--stream-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .stream-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stream-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stream-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: var(--stream-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .stream-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stream-subtitle {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .foundation-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .foundation-layer {
+            width: 100%;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .financial-foundation {
+            background: linear-gradient(135deg, var(--financial), #4a5568);
+            color: white;
+        }
+        
+        .foundation-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .domains-section {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin-top: 2rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(30, 60, 114, 0.1);
+        }
+        
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .domain-card {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(241, 245, 249, 0.95));
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid var(--domain-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .domain-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .domain-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: var(--domain-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .complexity-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+            margin-top: 0.5rem;
+        }
+        
+        .complexity-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+        
+        .complexity-dot.active {
+            background: var(--domain-color);
+        }
+        
+        .outcomes-framework {
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin-top: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .outcome-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .reality-check {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #f56565;
+            margin-bottom: 3rem;
+        }
+        
+        .warning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .warning-item {
+            background: #fed7d7;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border-left: 4px solid #f56565;
+        }
+        
+        .framework-diagram {
+            background: white;
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .diagram-container {
+            position: relative;
+            height: 500px;
+            margin: 2rem auto;
+            max-width: 1000px;
+        }
+        
+        .framework-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .flow-step {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .flow-step:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .flow-step::after {
+            content: '';
+            position: absolute;
+            bottom: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 3rem;
+            background: linear-gradient(to bottom, #667eea, #4facfe);
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .streams-container, .domains-grid, .warning-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .framework-tabs {
+                flex-direction: column;
+            }
+            .diagram-container {
+                height: auto;
+            }
+            .framework-flow {
+                gap: 2rem;
+            }
+            .flow-step {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Integrated Digital Health Transformation Framework
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-2 font-semibold">
+                Strategic Vision to Operational Reality
+            </p>
+            <p class="text-lg text-gray-500 max-w-4xl mx-auto mb-6">
+                Combining strategic leadership with comprehensive implementation for sustainable digital health transformation
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mt-6">
+                <div class="bg-blue-50 border border-blue-200 px-6 py-3 rounded-full text-blue-700 font-medium">
+                    <i class="fas fa-crown mr-2"></i> Strategic Leadership
+                </div>
+                <div class="bg-purple-50 border border-purple-200 px-6 py-3 rounded-full text-purple-700 font-medium">
+                    <i class="fas fa-sitemap mr-2"></i> Comprehensive Implementation
+                </div>
+                <div class="bg-pink-50 border border-pink-200 px-6 py-3 rounded-full text-pink-700 font-medium">
+                    <i class="fas fa-chart-line mr-2"></i> Value Outcomes
+                </div>
+            </div>
+        </div>
+
+        <!-- Framework Navigation -->
+        <div class="framework-tabs">
+            <div class="tab-btn active" data-tab="strategic">
+                <i class="fas fa-chess-king mr-2"></i> Strategic Framework
+            </div>
+            <div class="tab-btn" data-tab="implementation">
+                <i class="fas fa-tools mr-2"></i> Implementation Framework
+            </div>
+            <div class="tab-btn" data-tab="integrated">
+                <i class="fas fa-sync-alt mr-2"></i> Integrated Approach
+            </div>
+        </div>
+
+        <!-- Framework Diagram -->
+        <div class="framework-diagram">
+            <div class="section-title">
+                <h2>Transformation Journey</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">From strategic vision through implementation to sustainable outcomes</p>
+            </div>
+            
+            <div class="diagram-container">
+                <div class="framework-flow">
+                    <div class="flow-step" style="background: linear-gradient(135deg, #ffd6e7, #ffeff7);">
+                        <div class="flow-icon" style="background: linear-gradient(135deg, #ff6b6b, #ff8e8e);">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Strategic Leadership</h3>
+                        <p class="text-gray-600">Vision setting, executive commitment, and governance</p>
+                    </div>
+                    
+                    <div class="flow-step" style="background: linear-gradient(135deg, #d6e4ff, #eff5ff);">
+                        <div class="flow-icon" style="background: linear-gradient(135deg, #667eea, #8398ff);">
+                            <i class="fas fa-stream"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Concurrent Streams</h3>
+                        <p class="text-gray-600">Digital Foundation, Design Thinking, Value-Based Health</p>
+                    </div>
+                    
+                    <div class="flow-step" style="background: linear-gradient(135deg, #e0f7fa, #f0fdff);">
+                        <div class="flow-icon" style="background: linear-gradient(135deg, #48bb78, #6cd49b);">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Foundation & Domains</h3>
+                        <p class="text-gray-600">Financial governance, interoperability, and critical domains</p>
+                    </div>
+                    
+                    <div class="flow-step" style="background: linear-gradient(135deg, #e6f7e6, #f3fcf3);">
+                        <div class="flow-icon" style="background: linear-gradient(135deg, #4facfe, #6fc1ff);">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Value Outcomes</h3>
+                        <p class="text-gray-600">Clinical, economic, organizational, and societal impact</p>
+                    </div>
+                    
+                    <div class="flow-step" style="background: linear-gradient(135deg, #fff8e6, #fffdf5);">
+                        <div class="flow-icon" style="background: linear-gradient(135deg, #ffb347, #ffc174);">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sustainable Transformation</h3>
+                        <p class="text-gray-600">Continuous improvement and long-term value realization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Framework Section -->
+        <div id="strategic" class="framework-section active">
+            <div class="section-title">
+                <h2>Strategic Framework</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Leadership-driven approach for digital health transformation vision</p>
+            </div>
+            
+            <!-- Leadership Foundation -->
+            <div class="leadership-foundation">
+                <div class="leadership-content">
+                    <div class="flex flex-col items-center gap-4 mb-4">
+                        <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-crown text-white text-3xl"></i>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-black text-white">STRATEGIC LEADERSHIP FOUNDATION</h2>
+                    </div>
+                    <p class="text-xl text-white font-medium opacity-90 mb-6">
+                        Human-Centered Leadership Orchestrating Transformation
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 mb-4">
+                        <div class="bg-white bg-opacity-15 rounded-xl p-4 backdrop-blur text-center">
+                            <i class="fas fa-rocket text-white text-2xl mb-3"></i>
+                            <p class="text-white font-bold text-lg">Digital Foundation</p>
+                            <p class="text-white text-sm opacity-80">Infrastructure & Cultural Shift</p>
+                        </div>
+                        <div class="bg-white bg-opacity-15 rounded-xl p-4 backdrop-blur text-center">
+                            <i class="fas fa-user-cog text-white text-2xl mb-3"></i>
+                            <p class="text-white font-bold text-lg">Design Thinking</p>
+                            <p class="text-white text-sm opacity-80">Human-Centered Innovation</p>
+                        </div>
+                        <div class="bg-white bg-opacity-15 rounded-xl p-4 backdrop-blur text-center">
+                            <i class="fas fa-chart-bar text-white text-2xl mb-3"></i>
+                            <p class="text-white font-bold text-lg">Value-Based Health</p>
+                            <p class="text-white text-sm opacity-80">Outcomes & Impact</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white bg-opacity-10 rounded-2xl p-4 backdrop-blur mt-4">
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                            <div class="flex items-center text-white">
+                                <i class="fas fa-bullseye text-2xl mr-3"></i>
+                                <span class="font-bold text-lg">STRATEGIC OBJECTIVE:</span>
+                            </div>
+                            <div class="text-white font-black text-xl">
+                                SUSTAINABLE VALUE CREATION
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concurrent Transformation Streams -->
+            <div class="concurrent-streams">
+                <h2 class="text-3xl font-bold text-center mb-4">
+                    <i class="fas fa-stream mr-3 text-blue-600"></i>
+                    Three Strategic Transformation Streams
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-6 max-w-4xl mx-auto">
+                    Simultaneous strategic initiatives with integrated capabilities and shared leadership oversight
+                </p>
+                
+                <div class="streams-container">
+                    <!-- Stream 1: Digital Foundation -->
+                    <div class="stream-card" style="--stream-color: var(--digital);">
+                        <div class="stream-header">
+                            <div class="stream-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="stream-title">Digital Foundation</h3>
+                            <p class="stream-subtitle">Strategic Infrastructure & Cultural Shift</p>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                            <p class="text-sm text-blue-800">
+                                <strong>Strategic Focus:</strong> Regulatory framework, scalable systems, cultural transformation, foundational infrastructure
+                            </p>
+                            <ul class="mt-3 text-blue-700 text-sm space-y-1">
+                                <li>• Technical architecture deployment</li>
+                                <li>• Regulatory compliance framework</li>
+                                <li>• Staff training and certification</li>
+                                <li>• Pilot program implementation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stream 2: Design Thinking -->
+                    <div class="stream-card" style="--stream-color: var(--design);">
+                        <div class="stream-header">
+                            <div class="stream-icon">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <h3 class="stream-title">Design Thinking</h3>
+                            <p class="stream-subtitle">Human-Centered Innovation & Methodology</p>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-pink-50 rounded-lg">
+                            <p class="text-sm text-pink-800">
+                                <strong>Innovation Focus:</strong> Patient experience, stakeholder collaboration, accessibility, human-centered design
+                            </p>
+                            <ul class="mt-3 text-pink-700 text-sm space-y-1">
+                                <li>• Patient journey mapping</li>
+                                <li>• Clinician workflow optimization</li>
+                                <li>• Accessibility compliance</li>
+                                <li>• Co-design workshops</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Stream 3: Value-Based Digital Health -->
+                    <div class="stream-card" style="--stream-color: var(--value);">
+                        <div class="stream-header">
+                            <div class="stream-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3 class="stream-title">Value-Based Health</h3>
+                            <p class="stream-subtitle">Multi-Dimensional Outcomes & Impact</p>
+                        </div>
+                        
+                        <div class="mt-4 p-4 bg-cyan-50 rounded-lg">
+                            <p class="text-sm text-cyan-800">
+                                <strong>Value Focus:</strong> Ethical governance, outcome measurement, trust maintenance, comprehensive value creation
+                            </p>
+                            <ul class="mt-3 text-cyan-700 text-sm space-y-1">
+                                <li>• KPI framework development</li>
+                                <li>• Real-time dashboards</li>
+                                <li>• Outcome tracking systems</li>
+                                <li>• Continuous improvement cycles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Implementation Framework Section -->
+        <div id="implementation" class="framework-section">
+            <div class="section-title">
+                <h2>Implementation Framework</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Operational details for comprehensive digital health transformation</p>
+            </div>
+            
+            <!-- Foundation Stack -->
+            <div class="foundation-stack">
+                <div class="foundation-layer financial-foundation">
+                    <div class="foundation-content">
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+                            <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-hand-holding-usd text-white text-3xl"></i>
+                            </div>
+                            <h2 class="text-3xl font-black text-white">LEADERSHIP & FINANCIAL GOVERNANCE</h2>
+                        </div>
+                        <p class="text-xl text-white font-medium opacity-90 mb-6">
+                            Sustained Leadership with Multi-Year Investment & ROI Planning
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-white bg-opacity-15 rounded-xl p-4 backdrop-blur">
+                                <h3 class="text-white font-bold text-lg mb-3 text-center">Strategic Leadership</h3>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-users text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">Executive Commitment</p>
+                                        <p class="text-white text-xs opacity-80">C-suite sustained engagement</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-balance-scale text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">Regulatory Navigation</p>
+                                        <p class="text-white text-xs opacity-80">Compliance & approval expertise</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-sync-alt text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">Change Management</p>
+                                        <p class="text-white text-xs opacity-80">Cultural transformation leadership</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-white bg-opacity-15 rounded-xl p-4 backdrop-blur">
+                                <h3 class="text-white font-bold text-lg mb-3 text-center">Financial Sustainability</h3>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <div class="text-center">
+                                        <i class="fas fa-chart-line text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">ROI Timeline</p>
+                                        <p class="text-white text-xs opacity-80">3-5 years to positive returns</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-handshake text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">Funding Models</p>
+                                        <p class="text-white text-xs opacity-80">Public-private partnerships</p>
+                                    </div>
+                                    <div class="text-center">
+                                        <i class="fas fa-shield-alt text-white text-xl mb-2"></i>
+                                        <p class="text-white font-semibold text-sm">Risk Mitigation</p>
+                                        <p class="text-white text-xs opacity-80">Phased investment approach</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Critical Domains -->
+            <div class="domains-section">
+                <h2 class="text-3xl font-bold text-center mb-4">
+                    <i class="fas fa-puzzle-piece mr-3 text-purple-600"></i>
+                    Eight Critical Transformation Domains
+                </h2>
+                <p class="text-lg text-gray-600 text-center mb-6 max-w-4xl mx-auto">
+                    Comprehensive domain coverage addressing implementation challenges with complexity indicators
+                </p>
+
+                <div class="domains-grid">
+                    <div class="domain-card" style="--domain-color: #667eea;">
+                        <div class="domain-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Policy & Governance</h4>
+                        <p class="text-sm text-gray-600 mb-3">Regulatory compliance, strategic oversight, risk management</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">High regulatory complexity</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #48bb78;">
+                        <div class="domain-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Data Governance & Quality</h4>
+                        <p class="text-sm text-gray-600 mb-3">Data standards, quality assurance, lifecycle management</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Critical foundation domain</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #f093fb;">
+                        <div class="domain-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Services & Delivery</h4>
+                        <p class="text-sm text-gray-600 mb-3">Patient experience, telemedicine, care coordination</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot"></div>
+                            <div class="complexity-dot"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Workflow integration focus</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #4facfe;">
+                        <div class="domain-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Interoperability & Integration</h4>
+                        <p class="text-sm text-gray-600 mb-3">Standards adoption, legacy integration, system connectivity</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Critical foundation domain</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #ed8936;">
+                        <div class="domain-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Security & Privacy</h4>
+                        <p class="text-sm text-gray-600 mb-3">Cybersecurity, data protection, compliance</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Continuous threat landscape</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #38b2ac;">
+                        <div class="domain-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">AI Ethics & Governance</h4>
+                        <p class="text-sm text-gray-600 mb-3">Algorithmic fairness, bias mitigation, AI oversight</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Emerging regulatory area</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #9f7aea;">
+                        <div class="domain-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Workforce & Change</h4>
+                        <p class="text-sm text-gray-600 mb-3">Training, culture change, digital literacy</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Cultural resistance factor</p>
+                    </div>
+
+                    <div class="domain-card" style="--domain-color: #f56565;">
+                        <div class="domain-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Ecosystem & Innovation</h4>
+                        <p class="text-sm text-gray-600 mb-3">Partnerships, innovation labs, stakeholder engagement</p>
+                        <div class="complexity-indicator">
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot active"></div>
+                            <div class="complexity-dot"></div>
+                            <div class="complexity-dot"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Multi-stakeholder coordination</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Measurable Outcomes -->
+            <div class="outcomes-framework">
+                <h3 class="text-3xl font-bold text-center mb-4">
+                    <i class="fas fa-target mr-3 text-blue-600"></i>
+                    Measurable Value Outcomes
+                </h3>
+                <p class="text-lg text-gray-700 mb-6 max-w-4xl mx-auto">
+                    Specific, measurable indicators with baseline requirements and benchmark targets
+                </p>
+                <div class="outcomes-grid">
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user-md text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Clinical Impact</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• Readmission rate reduction: 15-25%</li>
+                            <li>• Care coordination efficiency: +30%</li>
+                            <li>• Diagnostic accuracy improvement</li>
+                            <li>• Treatment adherence rates</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-dollar-sign text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Economic Value</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• ROI achievement: Year 3-5</li>
+                            <li>• Cost per episode reduction: 20%</li>
+                            <li>• Operational efficiency gains</li>
+                            <li>• Revenue cycle optimization</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Organizational</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• Staff satisfaction scores: +25%</li>
+                            <li>• Process automation rate: 60%+</li>
+                            <li>• Data-driven decision making</li>
+                            <li>• Innovation pipeline metrics</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Safety & Quality</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• Medical error reduction: 40%+</li>
+                            <li>• Security incident rate: <0.1%</li>
+                            <li>• Compliance score: 95%+</li>
+                            <li>• Patient safety indicators</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-smile text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Experience Quality</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• Patient satisfaction: 90%+</li>
+                            <li>• Digital engagement rates</li>
+                            <li>• Access time reduction: 50%</li>
+                            <li>• NPS score improvement</li>
+                        </ul>
+                    </div>
+                    <div class="outcome-card">
+                        <div class="w-16 h-16 mx-auto mb-3 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full flex items-center justify-center">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800 mb-2">Societal Impact</h4>
+                        <ul class="text-xs text-gray-600 text-left space-y-1">
+                            <li>• Health equity metrics</li>
+                            <li>• Population health outcomes</li>
+                            <li>• Environmental sustainability</li>
+                            <li>• Economic development impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reality Check -->
+            <div class="reality-check">
+                <h3 class="text-2xl font-bold text-red-700 mb-4">
+                    <i class="fas fa-exclamation-triangle mr-3"></i>
+                    Implementation Reality Check
+                </h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    Critical considerations and common failure points that organizations must address proactively
+                </p>
+                
+                <div class="warning-grid">
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-money-bill-wave mr-2"></i>
+                            Financial Underestimation
+                        </h4>
+                        <p class="text-sm text-red-600">Typical budget overruns: 150-300%. Hidden costs in integration, training, and change management often exceed technology costs.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-clock mr-2"></i>
+                            Timeline Unrealism
+                        </h4>
+                        <p class="text-sm text-red-600">Regulatory approvals alone: 6-18 months. Full implementation: 3-7 years typical. Rushed timelines lead to quality and security compromises.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-users-slash mr-2"></i>
+                            Resistance Management
+                        </h4>
+                        <p class="text-sm text-red-600">Healthcare workers' resistance to workflow changes. Patient digital divide. Insufficient training and support systems.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-puzzle-piece mr-2"></i>
+                            Integration Complexity
+                        </h4>
+                        <p class="text-sm text-red-600">Legacy system dependencies. Vendor lock-in risks. Data migration challenges. Interoperability failures common.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-balance-scale mr-2"></i>
+                            Regulatory Navigation
+                        </h4>
+                        <p class="text-sm text-red-600">Multiple jurisdictions. Evolving regulations. Compliance costs escalation. Approval delays and rejections.</p>
+                    </div>
+                    
+                    <div class="warning-item">
+                        <h4 class="font-bold text-red-700 mb-2">
+                            <i class="fas fa-chart-line-down mr-2"></i>
+                            ROI Measurement
+                        </h4>
+                        <p class="text-sm text-red-600">Difficult to quantify benefits. Long payback periods. Unintended consequences. Value attribution challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg mt-6">
+                    <h4 class="font-bold text-blue-800 mb-2">Success Factors</h4>
+                    <ul class="text-blue-700 space-y-1 text-sm">
+                        <li>• Dedicated transformation office with full executive backing</li>
+                        <li>• Phased implementation with measurable milestones</li>
+                        <li>• Comprehensive change management program</li>
+                        <li>• Continuous stakeholder engagement and feedback loops</li>
+                        <li>• Flexible architecture allowing iterative improvements</li>
+                        <li>• Strong vendor partnerships with proven healthcare expertise</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrated Approach Section -->
+        <div id="integrated" class="framework-section">
+            <div class="section-title">
+                <h2>Integrated Transformation Approach</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">Combining strategic vision with operational execution for sustainable results</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-6 shadow-lg mb-8">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">The Integrated Transformation Model</h3>
+                        <p class="text-gray-600 mb-4">
+                            This framework bridges the gap between strategic vision and operational execution by combining:
+                        </p>
+                        <ul class="space-y-2 text-gray-700 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Strategic Leadership</strong> from the overarching framework</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Concurrent Transformation Streams</strong> that align vision with execution</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Operational Foundations</strong> from the comprehensive framework</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Domain-Specific Implementation</strong> with complexity indicators</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span><strong>Measurable Value Outcomes</strong> across multiple dimensions</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6">
+                        <h4 class="font-bold text-lg text-gray-800 mb-3">Key Integration Points</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-link text-white text-sm"></i>
+                                    </div>
+                                    <h5 class="font-bold text-gray-800">Leadership Alignment</h5>
+                                </div>
+                                <p class="text-sm text-gray-600 pl-10">Executive commitment connects strategic vision to resource allocation</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-sync-alt text-white text-sm"></i>
+                                    </div>
+                                    <h5 class="font-bold text-gray-800">Stream Synchronization</h5>
+                                </div>
+                                <p class="text-sm text-gray-600 pl-10">Concurrent workstreams coordinate through shared governance</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="w-8 h-8 rounded-full bg-pink-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-layer-group text-white text-sm"></i>
+                                    </div>
+                                    <h5 class="font-bold text-gray-800">Domain Integration</h5>
+                                </div>
+                                <p class="text-sm text-gray-600 pl-10">Critical domains provide implementation structure across streams</p>
+                            </div>
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <div class="w-8 h-8 rounded-full bg-teal-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-bullseye text-white text-sm"></i>
+                                    </div>
+                                    <h5 class="font-bold text-gray-800">Outcome Measurement</h5>
+                                </div>
+                                <p class="text-sm text-gray-600 pl-10">Value outcomes track progress against strategic objectives</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-chess-king text-blue-600 mr-3"></i>
+                        Strategic Advantages
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span><strong>Alignment:</strong> Ensures all implementation activities directly support strategic objectives</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span><strong>Resource Optimization:</strong> Shared resources across concurrent streams reduce duplication</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span><strong>Risk Management:</strong> Reality checks incorporated throughout the transformation journey</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span><strong>Adaptability:</strong> Flexible enough to accommodate emerging technologies and regulations</span>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                            <span><strong>Stakeholder Engagement:</strong> Design thinking approach embedded throughout the process</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                        <i class="fas fa-tachometer-alt text-purple-600 mr-3"></i>
+                        Implementation Approach
+                    </h3>
+                    <ol class="space-y-4 relative pl-2 border-l-2 border-purple-200">
+                        <li class="relative pl-6">
+                            <div class="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-purple-500"></div>
+                            <h4 class="font-bold text-gray-800">Phase 1: Strategic Alignment</h4>
+                            <p class="text-sm text-gray-600">Establish governance, define vision, secure leadership commitment</p>
+                        </li>
+                        <li class="relative pl-6">
+                            <div class="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-purple-500"></div>
+                            <h4 class="font-bold text-gray-800">Phase 2: Foundation Building</h4>
+                            <p class="text-sm text-gray-600">Develop financial model, infrastructure, and interoperability standards</p>
+                        </li>
+                        <li class="relative pl-6">
+                            <div class="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-purple-500"></div>
+                            <h4 class="font-bold text-gray-800">Phase 3: Domain Implementation</h4>
+                            <p class="text-sm text-gray-600">Execute across critical domains with complexity-based prioritization</p>
+                        </li>
+                        <li class="relative pl-6">
+                            <div class="absolute -left-2.5 top-0 w-4 h-4 rounded-full bg-purple-500"></div>
+                            <h4 class="font-bold text-gray-800">Phase 4: Value Realization</h4>
+                            <p class="text-sm text-gray-600">Measure outcomes, optimize performance, scale successful initiatives</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">Ready to Transform Your Digital Health Strategy?</h3>
+                <p class="text-lg mb-6 max-w-3xl mx-auto">This integrated framework provides a complete roadmap from strategic vision to operational reality, enabling sustainable digital transformation in healthcare.</p>
+                <button class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-blue-50 transition duration-300">
+                    Download Full Framework PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const frameworkSections = document.querySelectorAll('.framework-section');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active section
+                    frameworkSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === tabId) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
