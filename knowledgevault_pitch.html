@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeVault - AI Document Digitization for Indonesia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mobile-First Custom Styles */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Desktop enhancements only */
+        @media (min-width: 768px) {
+            .glass-effect {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+        
+        /* Disable heavy animations on mobile */
+        @media (max-width: 767px) {
+            .animate-pulse {
+                animation: none;
+            }
+        }
+        
+        /* Custom gradient backgrounds */
+        .gradient-blue {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .gradient-purple {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        /* Touch-friendly sizing */
+        .touch-target {
+            min-height: 44px;
+            min-width: 44px;
+        }
+    </style>
+</head>
+<body class="min-h-screen gradient-blue text-white">
+    <!-- Header Section - Mobile First -->
+    <header class="text-center py-4 md:py-8 px-3 md:px-6">
+        <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold mb-2 md:mb-4">
+            📚 KnowledgeVault
+        </h1>
+        <p class="text-sm md:text-lg lg:text-xl opacity-90 mb-2 md:mb-4">
+            AI Document Digitization for Indonesia's $146B Digital Economy
+        </p>
+        <div class="glass-effect rounded-lg p-3 md:p-4 inline-block">
+            <p class="text-xs md:text-sm font-semibold">
+                💡 Smart. Local. Proven Technology.
+            </p>
+        </div>
+    </header>
+
+    <!-- Key Metrics Section - Mobile First Grid -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+            <div class="glass-effect rounded-lg p-3 md:p-4 text-center touch-target">
+                <div class="text-lg md:text-2xl font-bold">$146B</div>
+                <div class="text-xs md:text-sm opacity-80">Digital Economy 2025</div>
+            </div>
+            <div class="glass-effect rounded-lg p-3 md:p-4 text-center touch-target">
+                <div class="text-lg md:text-2xl font-bold">28.65%</div>
+                <div class="text-xs md:text-sm opacity-80">AI Market Growth</div>
+            </div>
+            <div class="glass-effect rounded-lg p-3 md:p-4 text-center touch-target">
+                <div class="text-lg md:text-2xl font-bold">6,500+</div>
+                <div class="text-xs md:text-sm opacity-80">Target Organizations</div>
+            </div>
+            <div class="glass-effect rounded-lg p-3 md:p-4 text-center touch-target">
+                <div class="text-lg md:text-2xl font-bold">15x</div>
+                <div class="text-xs md:text-sm opacity-80">Revenue Growth (3yr)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-3 md:mb-4">🎯 The Opportunity</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div>
+                    <h3 class="text-sm md:text-lg font-semibold mb-2 text-red-200">❌ Problem</h3>
+                    <ul class="text-xs md:text-sm space-y-1 opacity-90">
+                        <li>• Government offices need digitization compliance</li>
+                        <li>• 88% funding drop in Indonesian startups</li>
+                        <li>• Paper archives blocking digital transformation</li>
+                        <li>• Limited Bahasa Indonesia OCR solutions</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm md:text-lg font-semibold mb-2 text-green-200">✅ Solution</h3>
+                    <ul class="text-xs md:text-sm space-y-1 opacity-90">
+                        <li>• AI-powered document digitization platform</li>
+                        <li>• Proven OCR technology (Google/Azure APIs)</li>
+                        <li>• Local language optimization</li>
+                        <li>• End-to-end implementation support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Segments Chart -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-3 md:mb-4">📊 Target Market Segments</h2>
+            <div class="h-48 md:h-64 lg:h-80">
+                <canvas id="marketChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-3 md:mb-4">💰 Revenue Streams</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div class="h-40 md:h-48">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-blue-400 rounded"></div>
+                        <div class="text-xs md:text-sm">
+                            <span class="font-semibold">Per-Document:</span> $0.10-0.25 per doc
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-green-400 rounded"></div>
+                        <div class="text-xs md:text-sm">
+                            <span class="font-semibold">SaaS:</span> $100-300/month
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-purple-400 rounded"></div>
+                        <div class="text-xs md:text-sm">
+                            <span class="font-semibold">Professional:</span> $5K-25K/project
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="w-4 h-4 bg-yellow-400 rounded"></div>
+                        <div class="text-xs md:text-sm">
+                            <span class="font-semibold">Training:</span> $2K-5K/engagement
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Growth Trajectory -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-3 md:mb-4">📈 Conservative Growth Projections</h2>
+            <div class="h-48 md:h-64 lg:h-80">
+                <canvas id="growthChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Advantages -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+            <h2 class="text-lg md:text-2xl font-bold mb-3 md:mb-4">🏆 Why We'll Win</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                <div class="text-center p-3 rounded-lg bg-white/10 touch-target">
+                    <div class="text-2xl md:text-3xl mb-2">🇮🇩</div>
+                    <div class="text-xs md:text-sm font-semibold">Local Focus</div>
+                    <div class="text-xs opacity-80">Bahasa Indonesia optimized</div>
+                </div>
+                <div class="text-center p-3 rounded-lg bg-white/10 touch-target">
+                    <div class="text-2xl md:text-3xl mb-2">🏛️</div>
+                    <div class="text-xs md:text-sm font-semibold">Gov Relations</div>
+                    <div class="text-xs opacity-80">Bureaucratic expertise</div>
+                </div>
+                <div class="text-center p-3 rounded-lg bg-white/10 touch-target">
+                    <div class="text-2xl md:text-3xl mb-2">💲</div>
+                    <div class="text-xs md:text-sm font-semibold">Affordable</div>
+                    <div class="text-xs opacity-80">Proven API leverage</div>
+                </div>
+                <div class="text-center p-3 rounded-lg bg-white/10 touch-target">
+                    <div class="text-2xl md:text-3xl mb-2">🛠️</div>
+                    <div class="text-xs md:text-sm font-semibold">Full Service</div>
+                    <div class="text-xs opacity-80">End-to-end support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funding & Team -->
+    <section class="px-3 md:px-6 mb-6 md:mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold mb-3">💰 Funding Ask</h3>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm md:text-base">
+                        <span>Bootstrap/Seed:</span>
+                        <span class="font-bold">$150K</span>
+                    </div>
+                    <div class="flex justify-between text-sm md:text-base">
+                        <span>Series A:</span>
+                        <span class="font-bold">$500K</span>
+                    </div>
+                    <div class="text-xs md:text-sm opacity-80 mt-2">
+                        18-month path to profitability
+                    </div>
+                </div>
+            </div>
+            <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold mb-3">👥 MVP Team</h3>
+                <div class="space-y-1 text-xs md:text-sm">
+                    <div>• CEO: Biz dev & gov relations</div>
+                    <div>• CTO: API integration</div>
+                    <div>• Sales: B2B Indonesia exp</div>
+                    <div>• Success: Implementation</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <footer class="text-center py-6 md:py-8 px-3 md:px-6">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6 max-w-2xl mx-auto">
+            <h2 class="text-lg md:text-2xl font-bold mb-2 md:mb-4">
+                🚀 Ready to Digitize Indonesia's Future?
+            </h2>
+            <p class="text-sm md:text-base opacity-90 mb-3 md:mb-4">
+                Join us in transforming 6,500+ organizations with proven AI technology
+            </p>
+            <div class="text-xs md:text-sm">
+                <strong>Next Steps:</strong> Pilot program with 3-5 government offices | 6-month MVP development
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile-first responsive configuration
+        const isMobile = window.innerWidth < 768;
+        const baseFontSize = isMobile ? 9 : 12;
+        const titleFontSize = isMobile ? 11 : 14;
+        
+        // Common chart configuration for mobile-first
+        const mobileChartConfig = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'rgba(255, 255, 255, 0.9)',
+                        font: { size: baseFontSize },
+                        usePointStyle: true,
+                        padding: isMobile ? 10 : 20
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        font: { size: baseFontSize }
+                    },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                },
+                x: {
+                    ticks: {
+                        color: 'rgba(255, 255, 255, 0.7)',
+                        font: { size: baseFontSize }
+                    },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                }
+            }
+        };
+
+        // Market Segments Chart
+        const marketCtx = document.getElementById('marketChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'bar',
+            data: {
+                labels: isMobile ? ['Gov', 'Edu', 'SME'] : ['Government Offices', 'Educational Inst.', 'SMEs'],
+                datasets: [{
+                    label: 'Organizations',
+                    data: [500, 1000, 5000],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(139, 69, 218, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgb(59, 130, 246)',
+                        'rgb(16, 185, 129)',
+                        'rgb(139, 69, 218)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                ...mobileChartConfig,
+                plugins: {
+                    ...mobileChartConfig.plugins,
+                    title: {
+                        display: !isMobile,
+                        text: 'Target Market Segments',
+                        color: 'white',
+                        font: { size: titleFontSize }
+                    }
+                }
+            }
+        });
+
+        // Revenue Streams Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'doughnut',
+            data: {
+                labels: isMobile ? ['Per-Doc', 'SaaS', 'Professional', 'Training'] : ['Per-Document', 'SaaS', 'Professional', 'Training'],
+                datasets: [{
+                    data: [40, 30, 25, 5],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(139, 69, 218, 0.8)',
+                        'rgba(245, 158, 11, 0.8)'
+                    ],
+                    borderColor: 'rgba(255, 255, 255, 0.2)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: isMobile ? 'bottom' : 'right',
+                        labels: {
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            font: { size: baseFontSize },
+                            usePointStyle: true,
+                            padding: isMobile ? 8 : 15
+                        }
+                    }
+                }
+            }
+        });
+
+        // Growth Trajectory Chart
+        const growthCtx = document.getElementById('growthChart').getContext('2d');
+        new Chart(growthCtx, {
+            type: 'line',
+            data: {
+                labels: ['Year 1', 'Year 2', 'Year 3'],
+                datasets: [
+                    {
+                        label: 'Revenue ($K)',
+                        data: [50, 250, 750],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: 'Customers',
+                        data: [5, 35, 100],
+                        borderColor: 'rgb(16, 185, 129)',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                ...mobileChartConfig,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: !isMobile,
+                            text: 'Revenue ($K)',
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            font: { size: baseFontSize }
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            font: { size: baseFontSize }
+                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: !isMobile,
+                        position: 'right',
+                        title: {
+                            display: !isMobile,
+                            text: 'Customers',
+                            color: 'rgba(255, 255, 255, 0.9)',
+                            font: { size: baseFontSize }
+                        },
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            font: { size: baseFontSize }
+                        },
+                        grid: { drawOnChartArea: false }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'rgba(255, 255, 255, 0.7)',
+                            font: { size: baseFontSize }
+                        },
+                        grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Responsive chart resizing
+        window.addEventListener('resize', () => {
+            Chart.instances.forEach(chart => {
+                chart.resize();
+            });
+        });
+    </script>
+</body>
+</html>
