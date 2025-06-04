@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI dalam Pendidikan: Panduan Strategis Regulator Indonesia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Mobile-First Performance Optimizations */
+        @media (max-width: 767px) {
+            .heavy-animation { animation: none; }
+            .pulse-effect { animation: none; }
+        }
+        
+        /* Desktop Enhancements */
+        @media (min-width: 768px) {
+            .glass-effect {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.1);
+            }
+            .hover-lift:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            }
+        }
+        
+        /* Touch-friendly mobile base */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 200px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-container { height: 320px; }
+        }
+        
+        /* Responsive font system */
+        .responsive-title { font-size: 1.75rem; line-height: 1.2; }
+        @media (min-width: 768px) { .responsive-title { font-size: 2.5rem; } }
+        @media (min-width: 1024px) { .responsive-title { font-size: 3rem; } }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Header Section - Mobile First -->
+    <header class="text-white text-center py-6 md:py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="responsive-title font-bold mb-2 md:mb-4">
+                🤖 AI dalam Pendidikan
+            </h1>
+            <p class="text-sm md:text-xl opacity-90 max-w-2xl mx-auto">
+                Panduan Strategis untuk Regulator Indonesia mengantisipasi Revolusi Pembelajaran 2025-2030
+            </p>
+        </div>
+    </header>
+
+    <!-- Key Stats Section -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+            <div class="glass-effect text-white p-3 md:p-6 rounded-lg md:rounded-xl text-center hover-lift transition-all duration-300">
+                <div class="text-xl md:text-3xl font-bold mb-1 md:mb-2">31.2%</div>
+                <div class="text-xs md:text-sm opacity-80">Pertumbuhan Tahunan</div>
+            </div>
+            <div class="glass-effect text-white p-3 md:p-6 rounded-lg md:rounded-xl text-center hover-lift transition-all duration-300">
+                <div class="text-xl md:text-3xl font-bold mb-1 md:mb-2">86%</div>
+                <div class="text-xs md:text-sm opacity-80">Mahasiswa Gunakan AI</div>
+            </div>
+            <div class="glass-effect text-white p-3 md:p-6 rounded-lg md:rounded-xl text-center hover-lift transition-all duration-300">
+                <div class="text-xl md:text-3xl font-bold mb-1 md:mb-2">$32B</div>
+                <div class="text-xs md:text-sm opacity-80">Pasar Global 2030</div>
+            </div>
+            <div class="glass-effect text-white p-3 md:p-6 rounded-lg md:rounded-xl text-center hover-lift transition-all duration-300">
+                <div class="text-xl md:text-3xl font-bold mb-1 md:mb-2">71%</div>
+                <div class="text-xs md:text-sm opacity-80">Guru Butuh Pelatihan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Growth Chart -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-8">
+            <h2 class="text-lg md:text-2xl font-bold text-white mb-3 md:mb-6 text-center">
+                📈 Proyeksi Pertumbuhan Pasar AI Pendidikan Global
+            </h2>
+            <div class="chart-container">
+                <canvas id="marketGrowthChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Comparison -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-8">
+            <h2 class="text-lg md:text-2xl font-bold text-white mb-3 md:mb-6 text-center">
+                🌏 Posisi Regional: Strategi Negara Asia-Pasifik
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
+                <div class="bg-white bg-opacity-10 p-3 md:p-4 rounded-lg">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">🇰🇷 Korea Selatan</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Investasi $0.74B untuk pelatihan guru AI, implementasi buku teks digital AI Maret 2025</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 md:p-4 rounded-lg">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">🇸🇬 Singapura</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Smart Nation 2030, AI untuk koreksi otomatis, pelatihan literasi AI untuk semua guru</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 md:p-4 rounded-lg">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">🇨🇳 China</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">64% universitas berencana buat lab AI, fokus pada pengumpulan data & performa ujian</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-3 md:p-4 rounded-lg border-2 border-yellow-400">
+                    <h3 class="font-bold text-yellow-400 mb-2 text-sm md:text-base">🇮🇩 Indonesia</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Peluang: Strategi nasional komprehensif, investasi pelatihan guru, regulasi etis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits vs Challenges -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+            <!-- Benefits -->
+            <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
+                    ✅ Manfaat Terukur
+                </h3>
+                <div class="space-y-2 md:space-y-3">
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Peningkatan retensi siswa 30%</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Engagement siswa naik 25%</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Otomasi 20-40% tugas admin guru</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Pembelajaran personal untuk 24 juta siswa</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Challenges -->
+            <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-6">
+                <h3 class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
+                    ⚠️ Tantangan Kritis
+                </h3>
+                <div class="space-y-2 md:space-y-3">
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>71% guru tanpa pelatihan AI</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Bias algoritma & kesenjangan digital</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>Privasi data siswa belum terlindungi</span>
+                    </div>
+                    <div class="flex items-center text-white text-xs md:text-sm">
+                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2 md:mr-3"></span>
+                        <span>2.6 miliar orang tanpa akses internet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Chart -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-8">
+            <h2 class="text-lg md:text-2xl font-bold text-white mb-3 md:mb-6 text-center">
+                📊 Tingkat Adopsi AI dalam Pendidikan
+            </h2>
+            <div class="chart-container">
+                <canvas id="adoptionChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategic Roadmap -->
+    <section class="container mx-auto px-4 mb-6 md:mb-12">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-8">
+            <h2 class="text-lg md:text-2xl font-bold text-white mb-4 md:mb-8 text-center">
+                🗺️ Roadmap Strategis Indonesia 2025-2030
+            </h2>
+            
+            <div class="space-y-4 md:space-y-6">
+                <!-- 2025-2026 -->
+                <div class="bg-white bg-opacity-10 p-3 md:p-6 rounded-lg">
+                    <h3 class="text-base md:text-lg font-bold text-yellow-400 mb-2">2025-2026: Fondasi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-white">
+                        <div>• Kerangka regulasi AI pendidikan</div>
+                        <div>• Program pelatihan massal guru</div>
+                        <div>• Pilot project 100 sekolah</div>
+                        <div>• Standar privasi & keamanan data</div>
+                    </div>
+                </div>
+                
+                <!-- 2027-2028 -->
+                <div class="bg-white bg-opacity-10 p-3 md:p-6 rounded-lg">
+                    <h3 class="text-base md:text-lg font-bold text-blue-400 mb-2">2027-2028: Ekspansi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-white">
+                        <div>• 80% guru terlatih literasi AI</div>
+                        <div>• Platform nasional pembelajaran AI</div>
+                        <div>• Sistem prediksi dropout siswa</div>
+                        <div>• Kurikulum AI untuk semua jenjang</div>
+                    </div>
+                </div>
+                
+                <!-- 2029-2030 -->
+                <div class="bg-white bg-opacity-10 p-3 md:p-6 rounded-lg">
+                    <h3 class="text-base md:text-lg font-bold text-green-400 mb-2">2029-2030: Transformasi</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm text-white">
+                        <div>• Pembelajaran personal skala nasional</div>
+                        <div>• AI assessment real-time</div>
+                        <div>• Kolaborasi global AI edukasi</div>
+                        <div>• Indonesia hub AI pendidikan ASEAN</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Recommendations -->
+    <section class="container mx-auto px-4 mb-8 md:mb-16">
+        <div class="glass-effect rounded-lg md:rounded-xl p-4 md:p-8 text-center">
+            <h2 class="text-lg md:text-2xl font-bold text-white mb-4 md:mb-6">
+                🎯 Rekomendasi Kunci untuk Regulator
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
+                <div class="bg-gradient-to-br from-purple-500 to-pink-500 p-3 md:p-6 rounded-lg hover-lift transition-all duration-300">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">1. Investasi Pelatihan</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Target 80% guru terlatih AI literacy dalam 3 tahun</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-500 to-teal-500 p-3 md:p-6 rounded-lg hover-lift transition-all duration-300">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">2. Regulasi Etis</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Framework privasi data siswa & anti-bias algoritma</p>
+                </div>
+                <div class="bg-gradient-to-br from-green-500 to-blue-500 p-3 md:p-6 rounded-lg hover-lift transition-all duration-300">
+                    <h3 class="font-bold text-white mb-2 text-sm md:text-base">3. Infrastruktur Digital</h3>
+                    <p class="text-white text-xs md:text-sm opacity-90">Pemerataan akses internet & device untuk semua siswa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile-first responsive configuration
+        const isMobile = window.innerWidth < 768;
+        const baseConfig = {
+            mobile: {
+                fontSize: 9,
+                chartHeight: 200,
+                padding: 10,
+                legendSize: 10
+            },
+            desktop: {
+                fontSize: 12,
+                chartHeight: 320,
+                padding: 20,
+                legendSize: 12
+            }
+        };
+        
+        const config = isMobile ? baseConfig.mobile : baseConfig.desktop;
+
+        // Market Growth Chart - Mobile Optimized
+        const ctx1 = document.getElementById('marketGrowthChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                datasets: [{
+                    label: 'Pasar AI Pendidikan (Miliar USD)',
+                    data: [5.88, 8.2, 11.4, 15.8, 21.9, 26.8, 32.27],
+                    borderColor: 'rgb(255, 206, 84)',
+                    backgroundColor: 'rgba(255, 206, 84, 0.2)',
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: isMobile ? 3 : 5,
+                    pointHoverRadius: isMobile ? 5 : 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white',
+                            font: { size: config.legendSize }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: 'white',
+                            font: { size: config.fontSize }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    },
+                    x: {
+                        ticks: {
+                            color: 'white',
+                            font: { size: config.fontSize }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' }
+                    }
+                }
+            }
+        });
+
+        // Adoption Chart - Mobile Optimized
+        const ctx2 = document.getElementById('adoptionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: isMobile ? 
+                    ['Siswa K-12', 'Mahasiswa', 'Guru Harian', 'Guru Terlatih'] :
+                    ['Siswa K-12 (75%)', 'Mahasiswa (86%)', 'Guru Gunakan Harian (60%)', 'Guru Terlatih AI (29%)'],
+                datasets: [{
+                    data: [75, 86, 60, 29],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.8)',
+                        'rgba(54, 162, 235, 0.8)',
+                        'rgba(255, 205, 86, 0.8)',
+                        'rgba(75, 192, 192, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 205, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: isMobile ? 'bottom' : 'right',
+                        labels: {
+                            color: 'white',
+                            font: { size: config.legendSize },
+                            padding: isMobile ? 10 : 15
+                        }
+                    }
+                }
+            }
+        });
+
+        // Handle window resize for mobile-first responsiveness
+        window.addEventListener('resize', function() {
+            // Chart.js handles responsiveness automatically
+            // Additional mobile-specific adjustments can be added here
+        });
+    </script>
+</body>
+</html>
